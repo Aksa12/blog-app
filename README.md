@@ -31,7 +31,7 @@ Link (Deployed to Vercel): https://blog-o7aejtokk-aksas-projects.vercel.app/
 - Nuxt.js
 - TailwindCSS
 - Lodash
-- ESLint / Prettier:**
+- ESLint / Prettier:
 
 ---
 
