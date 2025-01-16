@@ -1,46 +1,46 @@
 <script setup>
-import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
-import TextField from './TextField.vue'
-import CustomButton from './CustomButton.vue'
+import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+import TextField from './TextField.vue';
+import CustomButton from './CustomButton.vue';
 
-const emit = defineEmits(['submitSuccess'])
+const emit = defineEmits(['submitSuccess']);
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 const formData = ref({
   name: '',
   email: '',
   message: '',
-})
-const errors = ref({})
+});
+const errors = ref({});
 
 const validateForm = () => {
-  errors.value = {}
+  errors.value = {};
   if (!formData.value.name.trim()) {
-    errors.value.name = t('contactUs.errMsg.nameRequired')
+    errors.value.name = t('contactUs.errMsg.nameRequired');
   }
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!formData.value.email.trim()) {
-    errors.value.email = t('contactUs.errMsg.emailRequired')
+    errors.value.email = t('contactUs.errMsg.emailRequired');
   } else if (!emailRegex.test(formData.value.email)) {
-    errors.value.email = t('contactUs.errMsg.emailInvalid')
+    errors.value.email = t('contactUs.errMsg.emailInvalid');
   }
 
   if (!formData.value.message.trim()) {
-    errors.value.message = t('contactUs.errMsg.messageRequired')
+    errors.value.message = t('contactUs.errMsg.messageRequired');
   }
 
-  return Object.keys(errors.value).length === 0
-}
+  return Object.keys(errors.value).length === 0;
+};
 
 const submitForm = () => {
   if (validateForm()) {
-    resetForm()
-    emit('submitSuccess')
+    resetForm();
+    emit('submitSuccess');
   }
-}
+};
 
 // Reset the form
 const resetForm = () => {
@@ -48,9 +48,9 @@ const resetForm = () => {
     name: '',
     email: '',
     message: '',
-  }
-  errors.value = {}
-}
+  };
+  errors.value = {};
+};
 </script>
 
 <template>
@@ -75,7 +75,6 @@ const resetForm = () => {
       id="email"
       v-model="formData.email"
       :label="$t('contactUs.emailLabel')"
-      type="email"
       :placeholder="$t('contactUs.emailPlaceholder')"
       :error="errors.email"
     />

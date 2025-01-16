@@ -1,5 +1,5 @@
-import withNuxt from './.nuxt/eslint.config.mjs'
-import prettier from 'eslint-plugin-prettier'
+import withNuxt from './.nuxt/eslint.config.mjs';
+import prettier from 'eslint-plugin-prettier';
 
 export default withNuxt({
   plugins: { prettier }, // Add Prettier plugin
@@ -32,4 +32,4 @@ export default withNuxt({
     '.nuxt/**', // Ignore Nuxt-generated files
     'dist/**', // Ignore build output
   ],
-})
+});

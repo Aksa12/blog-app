@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps } from 'vue';
 
 defineProps({
   variant: {
@@ -14,7 +14,7 @@ defineProps({
     type: Function,
     default: null,
   },
-})
+});
 </script>
 
 <template>
