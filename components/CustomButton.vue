@@ -1,3 +1,22 @@
+<script setup>
+import { defineProps } from 'vue'
+
+defineProps({
+  variant: {
+    type: String,
+    default: 'primary',
+  },
+  className: {
+    type: String,
+    default: '',
+  },
+  onClick: {
+    type: Function,
+    default: null,
+  },
+})
+</script>
+
 <template>
   <button
     :class="[
@@ -10,22 +29,3 @@
     <slot></slot>
   </button>
 </template>
-
-<script>
-export default {
-  props: {
-    variant: {
-      type: String,
-      default: 'primary', // Default button style
-    },
-    className: {
-      type: String,
-      default: '', // Extra classes
-    },
-    onClick: {
-      type: Function,
-      default: null, // Optional click handler
-    },
-  },
-}
-</script>

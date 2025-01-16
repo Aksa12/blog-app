@@ -1,6 +1,28 @@
+<script setup>
+import { useRouter } from 'vue-router'
+import CustomButton from './CustomButton.vue'
+
+const props = defineProps({
+  post: {
+    type: Object,
+    required: true,
+  },
+})
+
+const router = useRouter()
+
+const getExcerpt = (text) => {
+  return text.length > 100 ? text.substring(0, 100) + '...' : text
+}
+
+const navigateToDetails = () => {
+  router.push(`/posts/${props.post.id}`)
+}
+</script>
+
 <template>
   <div
-    class="p-6 rounded-lg bg-card shadow-card hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between gap-1"
+    class="p-6 rounded-lg bg-card hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between gap-1"
   >
     <div>
       <h2 class="text-xl font-semibold mb-2 text-textDark">{{ post.title }}</h2>
@@ -10,36 +32,15 @@
           <router-link
             :to="`/posts/${post.id}`"
             class="text-button hover:text-buttonHover font-medium"
-            >Read More</router-link
+            >{{ $t('home.readMoreCTA') }}</router-link
           >
         </span>
       </p>
     </div>
     <div>
-      <CustomButton :on-click="() => $router.push(`/posts/${post.id}`)">
-        View Details
+      <CustomButton @click="navigateToDetails">
+        {{ $t('home.viewDetailsCTA') }}
       </CustomButton>
     </div>
   </div>
 </template>
-
-<script>
-import CustomButton from './CustomButton.vue'
-
-export default {
-  components: {
-    CustomButton,
-  },
-  props: {
-    post: {
-      type: Object,
-      required: true,
-    },
-  },
-  methods: {
-    getExcerpt(text) {
-      return text.length > 100 ? text.substring(0, 100) + '...' : text
-    },
-  },
-}
-</script>

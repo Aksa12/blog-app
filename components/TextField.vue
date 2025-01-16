@@ -1,11 +1,43 @@
+<script setup>
+defineProps({
+  id: {
+    type: String,
+    required: true,
+  },
+  label: {
+    type: String,
+    default: '',
+  },
+  modelValue: {
+    type: String,
+    required: true,
+  },
+  type: {
+    type: String,
+    default: 'text', // Supports "text", "email", "textarea", etc.
+  },
+  placeholder: {
+    type: String,
+    default: '',
+  },
+  error: {
+    type: String,
+    default: '',
+  },
+})
+
+defineEmits(['update:modelValue'])
+</script>
+
 <template>
   <div class="mb-4 flex flex-col">
     <label
       v-if="label"
       :for="id"
       class="block text-sm font-medium text-gray-700"
-      >{{ label }}</label
     >
+      {{ label }}
+    </label>
     <input
       v-if="type !== 'textarea'"
       :id="id"
@@ -27,34 +59,3 @@
     <p v-if="error" class="text-red-500 text-sm mt-1">{{ error }}</p>
   </div>
 </template>
-
-<script>
-export default {
-  props: {
-    id: {
-      type: String,
-      required: true,
-    },
-    label: {
-      type: String,
-      default: '',
-    },
-    modelValue: {
-      type: String,
-      required: true,
-    },
-    type: {
-      type: String,
-      default: 'text', // Supports "text", "email", "textarea", etc.
-    },
-    placeholder: {
-      type: String,
-      default: '',
-    },
-    error: {
-      type: String,
-      default: '',
-    },
-  },
-}
-</script>
