@@ -3,7 +3,8 @@
 
 This project demonstrates a small blog application built with **Nuxt.js**. The application displays posts fetched from a mocked API, allows searching by title or content, supports multilingual functionality, and includes a contact form with validations. The design is styled using **TailwindCSS**.
 
-Link (Deployed to Vercel): https://blog-o7aejtokk-aksas-projects.vercel.app/
+Link (Deployed to Vercel): https://blog-app-one-delta.vercel.app/
+
 
 ---
 
