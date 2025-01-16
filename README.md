@@ -1,4 +1,3 @@
----
 
 # **e-Mission Coding Challenge**
 
