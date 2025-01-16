@@ -10,4 +10,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  nitro: {
+    preset: 'vercel', // Optimizes for Vercel deployment
+  },
 })

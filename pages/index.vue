@@ -54,7 +54,7 @@
 
 <script>
 import { ref, computed, onMounted } from 'vue'
-import { debounce } from 'lodash' // Import Lodash debounce
+import debounce from 'lodash/debounce'
 import PostCard from '~/components/PostCard.vue'
 import SearchInput from '~/components/SearchInput.vue'
 
