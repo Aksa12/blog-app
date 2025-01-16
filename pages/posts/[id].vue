@@ -1,43 +1,43 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import CustomButton from '~/components/CustomButton.vue'
+import { ref, onMounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import CustomButton from '~/components/CustomButton.vue';
 
-const route = useRoute()
-const router = useRouter()
+const route = useRoute();
+const router = useRouter();
 
-const post = ref(null)
-const loading = ref(true)
-const error = ref(false)
+const post = ref(null);
+const loading = ref(true);
+const error = ref(false);
 
 const fetchPost = async () => {
   try {
     const response = await fetch(
       `https://jsonplaceholder.typicode.com/posts/${route.params.id}`,
-    )
+    );
 
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`)
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-    post.value = await response.json()
+    post.value = await response.json();
   } catch (err) {
-    console.error('Error fetching post:', err)
-    error.value = true
+    console.error('Error fetching post:', err);
+    error.value = true;
   } finally {
-    loading.value = false
+    loading.value = false;
   }
-}
+};
 
 const goBack = () => {
   if (window.history.length > 1) {
-    router.go(-1)
+    router.go(-1);
   } else {
-    router.push('/') // Fallback to homepage if no history exists
+    router.push('/'); // Fallback to homepage if no history exists
   }
-}
+};
 
-onMounted(fetchPost)
+onMounted(fetchPost);
 </script>
 <template>
   <div class="p-6 max-w-4xl mx-auto">

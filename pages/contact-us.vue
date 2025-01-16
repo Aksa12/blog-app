@@ -1,15 +1,15 @@
 <script setup>
-import { ref } from 'vue'
-import ContactForm from '~/components/ContactForm.vue'
+import { ref } from 'vue';
+import ContactForm from '~/components/ContactForm.vue';
 
-const snackbarVisible = ref(false)
+const snackbarVisible = ref(false);
 
 const showSnackbar = () => {
-  snackbarVisible.value = true
+  snackbarVisible.value = true;
   setTimeout(() => {
-    snackbarVisible.value = false
-  }, 3000) // Snackbar disappears after 3 seconds
-}
+    snackbarVisible.value = false;
+  }, 3000); // Snackbar disappears after 3 seconds
+};
 </script>
 <template>
   <div>

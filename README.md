@@ -13,7 +13,7 @@ Link (Deployed to Vercel): https://blog-o7aejtokk-aksas-projects.vercel.app/
 ## **Functionalities**
 
 - **Display Blog Posts:**
-  - Fetch and display a list of blog posts from a mocked API. Used the JSON Placeholder API for posts and post detail: https://jsonplaceholder.typicode.com/ 
+  - Fetch and display a list of blog posts from a mocked API. Used the JSON Placeholder API for posts and post detail: https://jsonplaceholder.typicode.com/
 - **Search Functionality:**
   - Search posts by title or content with throttling using `lodash`.
 - **Post Detail Page:**
@@ -31,7 +31,7 @@ Link (Deployed to Vercel): https://blog-o7aejtokk-aksas-projects.vercel.app/
 ## **Tech Stack**
 
 - **Nuxt.js:**
-- **TailwindCSS:** 
+- **TailwindCSS:**
 - **Lodash:**
 - **ESLint / Prettier:**
 

@@ -8,7 +8,7 @@ export default withNuxt({
     'prettier/prettier': [
       'error',
       {
-        semi: false,
+        semi: true,
         tabWidth: 2,
         useTabs: false,
         htmlSelfClosing: 'never',

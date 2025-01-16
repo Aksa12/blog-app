@@ -1,49 +1,49 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
-import debounce from 'lodash/debounce'
-import PostCard from '~/components/PostCard.vue'
-import SearchInput from '~/components/SearchInput.vue'
+import { ref, computed, onMounted } from 'vue';
+import debounce from 'lodash/debounce';
+import PostCard from '~/components/PostCard.vue';
+import SearchInput from '~/components/SearchInput.vue';
 
-const posts = ref([])
-const loading = ref(true)
-const error = ref(false)
-const searchQuery = ref('')
+const posts = ref([]);
+const loading = ref(true);
+const error = ref(false);
+const searchQuery = ref('');
 
 const fetchPosts = async () => {
   try {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
 
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`)
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-    posts.value = await response.json()
+    posts.value = await response.json();
   } catch (err) {
-    console.error('Error fetching posts:', err)
-    error.value = true
+    console.error('Error fetching posts:', err);
+    error.value = true;
   } finally {
-    loading.value = false
+    loading.value = false;
   }
-}
+};
 
 const filteredPosts = computed(() => {
   if (!searchQuery.value.trim()) {
-    return posts.value // Return all posts if the search query is empty
+    return posts.value; // Return all posts if the search query is empty
   }
-  const query = searchQuery.value.toLowerCase()
+  const query = searchQuery.value.toLowerCase();
   return posts.value.filter(
     (post) =>
       post.title.toLowerCase().includes(query) ||
       post.body.toLowerCase().includes(query),
-  )
-})
+  );
+});
 
 // Debounced Search
 const debouncedUpdateQuery = debounce((value) => {
-  searchQuery.value = value
-}, 300)
+  searchQuery.value = value;
+}, 300);
 
-onMounted(fetchPosts)
+onMounted(fetchPosts);
 </script>
 
 <template>
@@ -70,7 +70,7 @@ onMounted(fetchPosts)
       <div
         v-for="n in 6"
         :key="n"
-        class="p-4 rounded-lg bg-background animate-pulse shadow-card"
+        class="p-4 rounded-lg bg-background animate-pulse"
       >
         <div class="h-6 bg-gray-300 rounded w-3/4 mb-4"></div>
         <div class="h-4 bg-gray-300 rounded w-full mb-2"></div>

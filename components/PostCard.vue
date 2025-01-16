@@ -1,23 +1,23 @@
 <script setup>
-import { useRouter } from 'vue-router'
-import CustomButton from './CustomButton.vue'
+import { useRouter } from 'vue-router';
+import CustomButton from './CustomButton.vue';
 
 const props = defineProps({
   post: {
     type: Object,
     required: true,
   },
-})
+});
 
-const router = useRouter()
+const router = useRouter();
 
 const getExcerpt = (text) => {
-  return text.length > 100 ? text.substring(0, 100) + '...' : text
-}
+  return text.length > 100 ? text.substring(0, 100) + '...' : text;
+};
 
 const navigateToDetails = () => {
-  router.push(`/posts/${props.post.id}`)
-}
+  router.push(`/posts/${props.post.id}`);
+};
 </script>
 
 <template>

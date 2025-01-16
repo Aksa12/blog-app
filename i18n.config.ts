@@ -1,6 +1,6 @@
 export default defineI18nConfig(() => ({
   locales: ['en', 'de'],
-  defaultLocale: 'de',
+  defaultLocale: 'en',
   legacy: false,
   messages: {
     en: {
@@ -89,4 +89,4 @@ export default defineI18nConfig(() => ({
       },
     },
   },
-}))
+}));

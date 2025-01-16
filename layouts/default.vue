@@ -1,23 +1,23 @@
 <script setup>
-import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 
-const { setLocale, availableLocales } = useI18n()
+const { locale, setLocale, availableLocales } = useI18n();
 
 // Locale display names
 const localeNames = {
   en: 'English',
   de: 'German',
-}
+};
 
-const mobileMenuOpen = ref(false)
+const mobileMenuOpen = ref(false);
 
 function changeLanguage(event) {
-  setLocale(event.target.value)
+  setLocale(event.target.value);
 }
 
 function toggleMobileMenu() {
-  mobileMenuOpen.value = !mobileMenuOpen.value
+  mobileMenuOpen.value = !mobileMenuOpen.value;
 }
 </script>
 
@@ -72,15 +72,16 @@ function toggleMobileMenu() {
             }}</label>
             <select
               id="language-selector"
+              v-model="locale"
               class="appearance-none bg-gray-700 text-white border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500 hover:bg-gray-600 transition-all pr-8"
               @change="changeLanguage"
             >
               <option
-                v-for="locale in availableLocales"
-                :key="locale"
-                :value="locale"
+                v-for="currentLocale in availableLocales"
+                :key="currentLocale"
+                :value="currentLocale"
               >
-                {{ localeNames[locale] }}
+                {{ localeNames[currentLocale] }}
               </option>
             </select>
             <!-- Dropdown Icon -->
@@ -112,15 +113,16 @@ function toggleMobileMenu() {
             }}</label>
             <select
               id="mobile-language-selector"
+              v-model="locale"
               class="appearance-none bg-gray-700 text-white border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500 hover:bg-gray-600 transition-all w-full"
               @change="changeLanguage"
             >
               <option
-                v-for="locale in availableLocales"
-                :key="locale"
-                :value="locale"
+                v-for="currentLocale in availableLocales"
+                :key="currentLocale"
+                :value="currentLocale"
               >
-                {{ localeNames[locale] }}
+                {{ localeNames[currentLocale] }}
               </option>
             </select>
             <!-- Dropdown Icon -->

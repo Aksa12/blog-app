@@ -24,9 +24,9 @@ defineProps({
     type: String,
     default: '',
   },
-})
+});
 
-defineEmits(['update:modelValue'])
+defineEmits(['update:modelValue']);
 </script>
 
 <template>

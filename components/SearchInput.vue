@@ -8,9 +8,9 @@ defineProps({
     type: String,
     default: '',
   },
-})
+});
 
-defineEmits(['update:value'])
+defineEmits(['update:value']);
 </script>
 
 <template>
