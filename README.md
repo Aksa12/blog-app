@@ -1,5 +1,3 @@
-Here’s the complete, polished **README.md** file tailored for your project:
-
 ---
 
 # **e-Mission Coding Challenge**
@@ -30,10 +28,10 @@ Link (Deployed to Vercel): https://blog-o7aejtokk-aksas-projects.vercel.app/
 
 ## **Tech Stack**
 
-- **Nuxt.js:**
-- **TailwindCSS:**
-- **Lodash:**
-- **ESLint / Prettier:**
+- Nuxt.js
+- TailwindCSS
+- Lodash
+- ESLint / Prettier:**
 
 ---
 
